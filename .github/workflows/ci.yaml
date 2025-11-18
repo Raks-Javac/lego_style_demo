@@ -25,7 +25,6 @@ jobs:
         uses: bluefireteam/melos-action@v3
         with:
           run-bootstrap: true
-          melos-version: latest
 
       # Optionally, add more melos-action parameters here, e.g.:
       #   run-versioning: true
