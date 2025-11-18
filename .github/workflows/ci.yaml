@@ -21,21 +21,33 @@ jobs:
         with:
           channel: stable
 
-      - name: Melos Bootstrap
-        uses: invertase/melos-action@v4
+      - name: Melos Bootstrap & Checks
+        uses: bluefireteam/melos-action@v3
         with:
-          run: bootstrap
+          run-bootstrap: true
+          melos-version: latest
 
-      - name: Run local CI script
-        run: bash local_ci.sh
+      # Optionally, add more melos-action parameters here, e.g.:
+      #   run-versioning: true
+      #   publish-dry-run: true
+      #   create-pr: true
+      #   tag: true
 
-      # Optionally, run tests if you uncomment in local_ci.sh
+      # Example: Run static analysis after bootstrap
+      - name: Run static analysis
+        run: melos exec -- flutter analyze
+
+      # Example: Check code formatting
+      - name: Check code format
+        run: melos exec -- flutter format --set-exit-if-changed .
+
+      # Example: Run tests (uncomment if needed)
       # - name: Run tests
       #   run: melos exec -- "flutter test"
 
-      - name: Upload code coverage (optional)
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/
+      # Example: Upload code coverage (optional)
+      # - name: Upload code coverage
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: coverage-report
+      #     path: coverage/
