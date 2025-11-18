@@ -52,13 +52,12 @@ lego_style_demo/
 2. **Install dependencies and bootstrap the workspace:**
   ```sh
   dart pub global activate melos
-  dart pub add melos --dev
   melos bootstrap
   ```
 3. **Run the main app:**
   ```sh
   cd app/lego_app
-  fvm flutter run
+  flutter run
   ```
 
 ## Adding New Features
@@ -74,21 +73,39 @@ To add a new feature:
 
 ---
 
-## Monorepo Management with Melos (Advanced)
-This project uses [Melos](https://melos.invertase.dev/) to manage multiple Dart/Flutter packages in a single repository.
+## Monorepo Management with Melos
+This project uses [Melos](https://melos.invertase.dev/) to manage multiple Dart/Flutter packages in a single repository. All workspace configuration is in the root `pubspec.yaml`.
 
-### Setup & Installation
-1. **Install Melos globally:**
-  ```sh
-  dart pub global activate melos
-  ```
-2. **Install Melos in the workspace:**
-  At the root, add Melos as a dev dependency:
-  ```sh
-  dart pub add melos --dev
-  ```
-3. **Bootstrap the workspace:**
-  ```sh
-  melos bootstrap
-  ```
-  This installs all package dependencies and links local packages.
+### Local CI & GitHub Actions
+You can run the same checks locally as the CI workflow by executing:
+```sh
+bash local_ci.sh
+```
+This script will:
+- Activate Melos
+- Bootstrap the workspace
+- Regenerate Freezed files for all packages
+- Run static analysis
+- Check code formatting
+- (Optionally) run tests if you uncomment the test section
+
+#### GitHub Actions CI
+This repository uses [Melos Action](https://github.com/marketplace/actions/melos-action) for CI automation. The workflow is defined in `.github/workflows/ci.yaml` and will:
+- Set up Flutter
+- Bootstrap the workspace with Melos
+- Run the local CI script (`local_ci.sh`)
+- Optionally run tests and upload coverage
+
+CI runs on every push and pull request to `main` and `integration/*` branches.
+
+---
+
+## Recent Changes & Troubleshooting
+
+- **Dependency Conflicts Fixed:** Updated `injectable` and `injectable_generator` versions in feature modules to resolve analyzer and matcher conflicts.
+- **Freezed Warnings Fixed:** Local CI now regenerates Freezed files before analysis to avoid non-nullable equals parameter warnings.
+- **Melos Bootstrap:** Ensured Melos is activated and used for workspace management in both local and CI environments.
+- **GitHub Actions Workflow:** Added `.github/workflows/ci.yaml` using Melos Action and your local CI script for automated checks.
+- **README Updated:** This file now documents all setup, CI, and troubleshooting steps for new contributors.
+
+**If you see errors about missing generated files (e.g., `$initGetIt`), make sure your DI initializer has the correct annotation and import, and rerun the build step.**
