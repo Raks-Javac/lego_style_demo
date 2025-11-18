@@ -33,12 +33,12 @@ jobs:
       #   tag: true
 
       # Example: Run static analysis after bootstrap
-      - name: Run static analysis
-        run: melos exec -- flutter analyze
+        - name: Analyze
+          run: melos exec -- flutter analyze
 
-      # Example: Check code formatting
-      - name: Check code format
-        run: melos exec -- flutter format --set-exit-if-changed .
+        - name: Check code formatting
+          run: melos exec -- dart format --set-exit-if-changed .
+
 
       # Example: Run tests (uncomment if needed)
       # - name: Run tests

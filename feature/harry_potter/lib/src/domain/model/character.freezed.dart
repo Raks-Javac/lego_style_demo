@@ -12,7 +12,8 @@ part of 'character.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$Character {
@@ -44,20 +45,20 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? biography = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      biography: null == biography
-          ? _value.biography
-          : biography // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? name = null, Object? biography = null}) {
+    return _then(
+      _value.copyWith(
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            biography: null == biography
+                ? _value.biography
+                : biography // ignore: cast_nullable_to_non_nullable
+                      as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -65,8 +66,9 @@ class _$CharacterCopyWithImpl<$Res, $Val extends Character>
 abstract class _$$CharacterImplCopyWith<$Res>
     implements $CharacterCopyWith<$Res> {
   factory _$$CharacterImplCopyWith(
-          _$CharacterImpl value, $Res Function(_$CharacterImpl) then) =
-      __$$CharacterImplCopyWithImpl<$Res>;
+    _$CharacterImpl value,
+    $Res Function(_$CharacterImpl) then,
+  ) = __$$CharacterImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String biography});
@@ -77,25 +79,25 @@ class __$$CharacterImplCopyWithImpl<$Res>
     extends _$CharacterCopyWithImpl<$Res, _$CharacterImpl>
     implements _$$CharacterImplCopyWith<$Res> {
   __$$CharacterImplCopyWithImpl(
-      _$CharacterImpl _value, $Res Function(_$CharacterImpl) _then)
-      : super(_value, _then);
+    _$CharacterImpl _value,
+    $Res Function(_$CharacterImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? biography = null,
-  }) {
-    return _then(_$CharacterImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      biography: null == biography
-          ? _value.biography
-          : biography // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null, Object? biography = null}) {
+    return _then(
+      _$CharacterImpl(
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        biography: null == biography
+            ? _value.biography
+            : biography // ignore: cast_nullable_to_non_nullable
+                  as String,
+      ),
+    );
   }
 }
 
@@ -135,9 +137,10 @@ class _$CharacterImpl implements _Character {
 }
 
 abstract class _Character implements Character {
-  const factory _Character(
-      {required final String name,
-      required final String biography}) = _$CharacterImpl;
+  const factory _Character({
+    required final String name,
+    required final String biography,
+  }) = _$CharacterImpl;
 
   @override
   String get name;

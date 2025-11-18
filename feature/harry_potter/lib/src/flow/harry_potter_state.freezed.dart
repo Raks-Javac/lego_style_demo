@@ -12,7 +12,8 @@ part of 'harry_potter_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$HarryPotterState {
@@ -26,8 +27,9 @@ mixin _$HarryPotterState {
 /// @nodoc
 abstract class $HarryPotterStateCopyWith<$Res> {
   factory $HarryPotterStateCopyWith(
-          HarryPotterState value, $Res Function(HarryPotterState) then) =
-      _$HarryPotterStateCopyWithImpl<$Res, HarryPotterState>;
+    HarryPotterState value,
+    $Res Function(HarryPotterState) then,
+  ) = _$HarryPotterStateCopyWithImpl<$Res, HarryPotterState>;
   @useResult
   $Res call({Character? selectedCharacter});
 
@@ -46,15 +48,16 @@ class _$HarryPotterStateCopyWithImpl<$Res, $Val extends HarryPotterState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? selectedCharacter = freezed,
-  }) {
-    return _then(_value.copyWith(
-      selectedCharacter: freezed == selectedCharacter
-          ? _value.selectedCharacter
-          : selectedCharacter // ignore: cast_nullable_to_non_nullable
-              as Character?,
-    ) as $Val);
+  $Res call({Object? selectedCharacter = freezed}) {
+    return _then(
+      _value.copyWith(
+            selectedCharacter: freezed == selectedCharacter
+                ? _value.selectedCharacter
+                : selectedCharacter // ignore: cast_nullable_to_non_nullable
+                      as Character?,
+          )
+          as $Val,
+    );
   }
 
   @override
@@ -73,9 +76,10 @@ class _$HarryPotterStateCopyWithImpl<$Res, $Val extends HarryPotterState>
 /// @nodoc
 abstract class _$$HarryPotterStateImplCopyWith<$Res>
     implements $HarryPotterStateCopyWith<$Res> {
-  factory _$$HarryPotterStateImplCopyWith(_$HarryPotterStateImpl value,
-          $Res Function(_$HarryPotterStateImpl) then) =
-      __$$HarryPotterStateImplCopyWithImpl<$Res>;
+  factory _$$HarryPotterStateImplCopyWith(
+    _$HarryPotterStateImpl value,
+    $Res Function(_$HarryPotterStateImpl) then,
+  ) = __$$HarryPotterStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Character? selectedCharacter});
@@ -88,21 +92,22 @@ abstract class _$$HarryPotterStateImplCopyWith<$Res>
 class __$$HarryPotterStateImplCopyWithImpl<$Res>
     extends _$HarryPotterStateCopyWithImpl<$Res, _$HarryPotterStateImpl>
     implements _$$HarryPotterStateImplCopyWith<$Res> {
-  __$$HarryPotterStateImplCopyWithImpl(_$HarryPotterStateImpl _value,
-      $Res Function(_$HarryPotterStateImpl) _then)
-      : super(_value, _then);
+  __$$HarryPotterStateImplCopyWithImpl(
+    _$HarryPotterStateImpl _value,
+    $Res Function(_$HarryPotterStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? selectedCharacter = freezed,
-  }) {
-    return _then(_$HarryPotterStateImpl(
-      selectedCharacter: freezed == selectedCharacter
-          ? _value.selectedCharacter
-          : selectedCharacter // ignore: cast_nullable_to_non_nullable
-              as Character?,
-    ));
+  $Res call({Object? selectedCharacter = freezed}) {
+    return _then(
+      _$HarryPotterStateImpl(
+        selectedCharacter: freezed == selectedCharacter
+            ? _value.selectedCharacter
+            : selectedCharacter // ignore: cast_nullable_to_non_nullable
+                  as Character?,
+      ),
+    );
   }
 }
 
@@ -136,7 +141,9 @@ class _$HarryPotterStateImpl implements _HarryPotterState {
   @pragma('vm:prefer-inline')
   _$$HarryPotterStateImplCopyWith<_$HarryPotterStateImpl> get copyWith =>
       __$$HarryPotterStateImplCopyWithImpl<_$HarryPotterStateImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 }
 
 abstract class _HarryPotterState implements HarryPotterState {

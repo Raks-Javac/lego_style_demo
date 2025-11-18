@@ -44,11 +44,14 @@ eval "$MELOS_CMD bootstrap"
 echo "Regenerating Freezed files in all packages..."
 eval "$MELOS_CMD exec -- dart run build_runner build --delete-conflicting-outputs"
 
+echo "Running build_runner for root package..."
+$FLUTTER_CMD pub run build_runner build --delete-conflicting-outputs
+
 echo "Running flutter analyze across workspace..."
 eval "$MELOS_CMD exec -- flutter analyze"
 
 echo "Checking code format across workspace..."
-eval "$MELOS_CMD exec -- flutter format --set-exit-if-changed ."
+ eval "$MELOS_CMD exec -- dart format --set-exit-if-changed ."
 
 # Uncomment below to run tests if/when you add them
 # echo "Running tests..."

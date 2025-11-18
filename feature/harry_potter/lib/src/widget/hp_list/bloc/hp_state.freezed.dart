@@ -12,7 +12,8 @@ part of 'hp_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$HPState {
@@ -42,23 +43,25 @@ class _$HPStateCopyWithImpl<$Res, $Val extends HPState>
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? characters = null,
-  }) {
-    return _then(_value.copyWith(
-      characters: null == characters
-          ? _value.characters
-          : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
-    ) as $Val);
+  $Res call({Object? characters = null}) {
+    return _then(
+      _value.copyWith(
+            characters: null == characters
+                ? _value.characters
+                : characters // ignore: cast_nullable_to_non_nullable
+                      as List<Character>,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$HPStateImplCopyWith<$Res> implements $HPStateCopyWith<$Res> {
   factory _$$HPStateImplCopyWith(
-          _$HPStateImpl value, $Res Function(_$HPStateImpl) then) =
-      __$$HPStateImplCopyWithImpl<$Res>;
+    _$HPStateImpl value,
+    $Res Function(_$HPStateImpl) then,
+  ) = __$$HPStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Character> characters});
@@ -69,20 +72,21 @@ class __$$HPStateImplCopyWithImpl<$Res>
     extends _$HPStateCopyWithImpl<$Res, _$HPStateImpl>
     implements _$$HPStateImplCopyWith<$Res> {
   __$$HPStateImplCopyWithImpl(
-      _$HPStateImpl _value, $Res Function(_$HPStateImpl) _then)
-      : super(_value, _then);
+    _$HPStateImpl _value,
+    $Res Function(_$HPStateImpl) _then,
+  ) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? characters = null,
-  }) {
-    return _then(_$HPStateImpl(
-      characters: null == characters
-          ? _value._characters
-          : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
-    ));
+  $Res call({Object? characters = null}) {
+    return _then(
+      _$HPStateImpl(
+        characters: null == characters
+            ? _value._characters
+            : characters // ignore: cast_nullable_to_non_nullable
+                  as List<Character>,
+      ),
+    );
   }
 }
 
@@ -90,7 +94,7 @@ class __$$HPStateImplCopyWithImpl<$Res>
 
 class _$HPStateImpl implements _HPState {
   const _$HPStateImpl({final List<Character> characters = const <Character>[]})
-      : _characters = characters;
+    : _characters = characters;
 
   final List<Character> _characters;
   @override
@@ -111,13 +115,17 @@ class _$HPStateImpl implements _HPState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HPStateImpl &&
-            const DeepCollectionEquality()
-                .equals(other._characters, _characters));
+            const DeepCollectionEquality().equals(
+              other._characters,
+              _characters,
+            ));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_characters));
+    runtimeType,
+    const DeepCollectionEquality().hash(_characters),
+  );
 
   @JsonKey(ignore: true)
   @override
